@@ -835,6 +835,9 @@ class Feed:
         stop_times = self.stop_times
         shapes = self.shapes
 
+        if shapes.empty:
+            raise ValueError("No shapes available, can't compute segments")
+
         req_columns = ["shape_id", "stop_sequence", "stop_id", "geometry"]
         add_columns = ["route_id", "route_name","direction_id", "stop_name"]
 

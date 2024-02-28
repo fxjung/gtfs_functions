@@ -1,11 +1,13 @@
 import pytest
 from importlib.resources import files
 from gtfs_functions import Feed
+from pathlib import Path
 
 
 @pytest.fixture
 def gtfs_path():
-    return files("test.data") / "sample-feed.zip"
+    # return files("test.data") / "sample-feed.zip"
+    return Path("/media/jung/P590/where2share/sollfahrplan/fernverkehr.zip")
 
 
 def test_compute_line_freq(gtfs_path):
